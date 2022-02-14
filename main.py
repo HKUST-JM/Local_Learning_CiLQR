@@ -1,4 +1,4 @@
-from algorithm.ilqr_solver import log_barrier_ilqr, nn_cilqr
+from ilqr_solver import LogBarrieriLQR, NNiLQR
 from scenario.car_parking import CarParking
 from scenario.quadcopter import QuadCopter
 from scenario.robotic_arm_tracking import RoboticArmTracking
@@ -10,7 +10,7 @@ import matplotlib.pyplot as plt
 #         try:
 #             logger.set_folder_name("QuadCopter_" + str(i), remove_existing_folder=False).set_is_use_logger(True).set_is_save_json(True)
 #             scenario = QuadCopter() 
-#             nn_cilqr.NNiLQR(gaussian_noise_sigma=[[0.1], [0.1], [0.1], [0.1]], iLQR_max_iter=100).init(scenario).solve() 
+#             NNiLQR(gaussian_noise_sigma=[[0.1], [0.1], [0.1], [0.1]], iLQR_max_iter=100).init(scenario).solve() 
 #         except Exception as e:
 #             pass
 #         continue
@@ -19,7 +19,7 @@ import matplotlib.pyplot as plt
 
 #     logger.set_folder_name("QuadCopter_Log", remove_existing_folder=False).set_is_use_logger(True).set_is_save_json(True)
 #     scenario = QuadCopter() 
-#     log_barrier_ilqr.LogBarrieriLQR().init(scenario).solve() 
+#     LogBarrieriLQR().init(scenario).solve() 
 #     scenario.play("QuadCopter_Log")
 
 
@@ -28,7 +28,7 @@ import matplotlib.pyplot as plt
 #         try:
 #             logger.set_folder_name("CarParking_" + str(i), remove_existing_folder=False).set_is_use_logger(True).set_is_save_json(True)
 #             scenario = CarParking() 
-#             nn_cilqr.NNiLQR(gaussian_noise_sigma=[[0.01], [0.1]], iLQR_max_iter=100).init(scenario).solve() 
+#             NNiLQR(gaussian_noise_sigma=[[0.01], [0.1]], iLQR_max_iter=100).init(scenario).solve() 
 #         except Exception as e:
 #             pass
 #         continue
@@ -37,7 +37,7 @@ import matplotlib.pyplot as plt
 
 #     logger.set_folder_name("CarParking_Log", remove_existing_folder=False).set_is_use_logger(True).set_is_save_json(True)
 #     scenario = CarParking() 
-#     log_barrier_ilqr.LogBarrieriLQR().init(scenario).solve() 
+#     LogBarrieriLQR().init(scenario).solve() 
 #     scenario.play("CarParking_Log")
 
 if __name__ == "__main__":
@@ -45,7 +45,7 @@ if __name__ == "__main__":
         try:
             logger.set_folder_name("RoboticArmTracking_" + str(i), remove_existing_folder=False).set_is_use_logger(True).set_is_save_json(True)
             scenario = RoboticArmTracking() 
-            nn_cilqr.NNiLQR(gaussian_noise_sigma=[[0.1], [0.1]], iLQR_max_iter=100, training_stopping_criterion=0.01, decay_rate_max_iters=200).init(scenario).solve() 
+            NNiLQR(gaussian_noise_sigma=[[0.1], [0.1]], iLQR_max_iter=100, training_stopping_criterion=0.01, decay_rate_max_iters=200).init(scenario).solve() 
         except Exception as e:
             pass
         continue
@@ -54,7 +54,7 @@ if __name__ == "__main__":
 
     logger.set_folder_name("RoboticArmTracking_log", remove_existing_folder=False).set_is_use_logger(True).set_is_save_json(True)
     scenario = RoboticArmTracking() 
-    log_barrier_ilqr.LogBarrieriLQR().init(scenario).solve() 
+    LogBarrieriLQR().init(scenario).solve() 
     scenario.play("RoboticArmTracking_log")
     plt.show()
 
